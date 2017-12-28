@@ -1,0 +1,35 @@
+<body>
+  <div class="sidenav">
+    <header>
+      <h1>Lists of lists</h1>
+    </header>
+    <ul>
+      <li>Create New List</li>
+      <li>List #1</li>
+      <li>List #2</li>
+    </ul>
+  </div>
+  <div class="container">
+    <header>
+      <h1>Todo List ({{incompleteCount}})</h1>
+      <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>
+      {{> loginButtons}}
+    </header>
+    <ul>
+      {{#if currentUser}}
+        <form class="new-task" autocomplete="off">
+          <input type="text" name="client" placeholder="Client Name"/>
+          <input type="text" name="text" placeholder="Impact Description" />
+          <button type="submit" style="display: none;">Add Item</button>
+        </form>
+      {{/if}}
+      
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
